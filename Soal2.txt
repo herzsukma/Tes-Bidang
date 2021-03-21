@@ -1,0 +1,5 @@
+Saran/masukkan untuk perbaikan https://kompas.id:
+1. Pada bagian navbar setelah logo "Kompas" bisa ditambahkan carousell untuk menggantikan posisi bagian "Terbaru" dan "Terpopuler". Hal ini dilakukan agar berita terbatu dan terpopuler dapat terekspos dan menjadi headline.
+2. Pada bagian tepi kiri dan kanan website kompas.id dapat memberikan jarak ruang kosong yang lebih sedikit,agar memuat konten yang lebih luas dan tidak terkesan sempit.
+3. Pada bagian tombol rubrik dapat diberikan animasi dengan pergerakan halus, serta pemberian icon pada setiap menu dan sub-menu agar selaras dengan navbar.
+4. Pada bagian footer, dapat dijadikan lebih simpel dengan cara memindahkan biografi kompas ke dalam konten navbar "Tentang Kami", kemudian pada bagian "Kantor Redaksi, Produk, Bisnis, Kantor Iklan" dapat dijadikan satu baris sejajar agar terlihat rapi.
