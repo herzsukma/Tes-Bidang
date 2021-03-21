@@ -4,10 +4,300 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Index</title>
 </head>
 <body>
-    <p>HAI</p>
-    <p>WOY</p>
+    <div id="judul" class="header text-center"></div>
+    <div class="header text-center">
+        <button type="button" class="btn btn-primary justify-content-center" data-toggle="modal" data-target="#exampleModalCenter">TAMBAH ITEM</button>
+    </div>
+
+    <script>
+        fetch('http://localhost:3000/items')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            var judulContainer = document.getElementById("judul");
+            let newArray = [];
+            for (var i = 0; i < data.length; i++) {
+                // var div = document.createElement("div");
+                // var arr = data[i];
+                newArray.push(data[i]);
+                
+                // if(tgl[0] == '2021-02-18' && tgl[1] >= '00:00:00'){
+                // div.innerHTML = '<div class="card shadow-sm p-3 mb-5 bg-white rounded" style="margin:5px; padding:20px;"><div class="card-body"><h4 class="card-title">'+ data[i].name + '</h4><p class="card-text"></p></div></div>';
+                // mainContainer.appendChild(div);
+                // }
+            }
+            // console.log(newArray);
+            sortByDate(newArray);
+            console.log(newArray);
+            var temp = 0;
+            var temp1 = 0;
+            var div = document.createElement("div");
+            var tb = document.createElement("tbody");
+            var h4 = document.createElement("h4");
+            var str = newArray[0].created_at;
+            var tgl = str.substring(0, 10);
+            tb.innerHTML = '<table class="table table-hover"><tbody><div class="card-header"><h4>'+ tgl +'</h4></div><table id="myData" class="table table-hover"><tbody>';
+            mainContainer.appendChild(tb);
+            for (var i = 0; i < newArray.length; i++){
+                
+                var str = newArray[i].created_at;
+                var tgl = str.substring(0, 10);
+                var jam = str.substring(16, 11);
+                
+                if(tgl == '2021-02-18'){
+                    tb.innerHTML += '<tr><td>'+ jam +'</td><td>&emsp;'+ data[i].name +'</td><td>&emsp;&emsp;'+ data[i].cost +'</td></tr>';
+                    mainContainer.appendChild(tb);
+                    temp += data[i].cost;
+                    temp1 += data[i].cost;
+                }
+            }
+            tb.innerHTML +='<tr><td colspan="2" style="text-align: right;">Total</td><td>&emsp;&emsp;'+ temp +'</td></tr>';
+            mainContainer.appendChild(tb);
+
+            var temp = 0;
+            var str = newArray[6].created_at;
+            var tgl = str.substring(0, 10);
+            tb.innerHTML += '<table class="table table-hover"><tbody><div class="card-header"><h4>'+ tgl +'</h4></div><table id="myData" class="table table-hover"><tbody>';
+            mainContainer.appendChild(tb);
+            for (var i = 0; i < newArray.length; i++){
+                
+                var str = newArray[i].created_at;
+                var tgl = str.substring(0, 10);
+                var jam = str.substring(16, 11);
+                
+                if(tgl == '2021-02-17'){
+                    tb.innerHTML += '<tr><td>'+ jam +'</td><td>&emsp;'+ data[i].name +'</td><td>&emsp;&emsp;'+ data[i].cost +'</td></tr>';
+                    mainContainer.appendChild(tb);
+                    temp += data[i].cost;
+                    temp1 += data[i].cost;
+                }
+            }
+            tb.innerHTML +='<tr><td colspan="2" style="text-align: right;">Total</td><td>&emsp;&emsp;'+ temp +'</td></tr>';
+            mainContainer.appendChild(tb);
+            
+            var temp = 0;
+            var str = newArray[13].created_at;
+            var tgl = str.substring(0, 10);
+            tb.innerHTML += '<table class="table table-hover"><tbody><div class="card-header"><h4>'+ tgl +'</h4></div><table id="myData" class="table table-hover"><tbody>';
+            mainContainer.appendChild(tb);
+            for (var i = 0; i < newArray.length; i++){
+                
+                var str = newArray[i].created_at;
+                var tgl = str.substring(0, 10);
+                var jam = str.substring(16, 11);
+                
+                if(tgl == '2021-02-16'){
+                    tb.innerHTML += '<tr><td>'+ jam +'</td><td>&emsp;'+ data[i].name +'</td><td>&emsp;&emsp;'+ data[i].cost +'</td></tr>';
+                    mainContainer.appendChild(tb);
+                    temp += data[i].cost;
+                    temp1 += data[i].cost;
+                }
+            }
+            tb.innerHTML +='<tr><td colspan="2" style="text-align: right;">Total</td><td>&emsp;&emsp;'+ temp +'</td></tr>';
+            mainContainer.appendChild(tb);
+
+            var temp = 0;
+            var str = newArray[19].created_at;
+            var tgl = str.substring(0, 10);
+            tb.innerHTML += '<table class="table table-hover"><tbody><div class="card-header"><h4>'+ tgl +'</h4></div><table id="myData" class="table table-hover"><tbody>';
+            mainContainer.appendChild(tb);
+            for (var i = 0; i < newArray.length; i++){
+                
+                var str = newArray[i].created_at;
+                var tgl = str.substring(0, 10);
+                var jam = str.substring(16, 11);
+                
+                if(tgl == '2021-02-15'){
+                    tb.innerHTML += '<tr><td>'+ jam +'</td><td>&emsp;'+ data[i].name +'</td><td>&emsp;&emsp;'+ data[i].cost +'</td></tr>';
+                    mainContainer.appendChild(tb);
+                    temp += data[i].cost;
+                    temp1 += data[i].cost;
+                }
+            }
+            tb.innerHTML +='<tr><td colspan="2" style="text-align: right;">Total</td><td>&emsp;&emsp;'+ temp +'</td></tr>';
+            mainContainer.appendChild(tb);
+
+            var temp = 0;
+            var str = newArray[25].created_at;
+            var tgl = str.substring(0, 10);
+            tb.innerHTML += '<table class="table table-hover"><tbody><div class="card-header"><h4>'+ tgl +'</h4></div><table id="myData" class="table table-hover"><tbody>';
+            mainContainer.appendChild(tb);
+            for (var i = 0; i < newArray.length; i++){
+                
+                var str = newArray[i].created_at;
+                var tgl = str.substring(0, 10);
+                var jam = str.substring(16, 11);
+                
+                if(tgl == '2021-02-14'){
+                    tb.innerHTML += '<tr><td>'+ jam +'</td><td>&emsp;'+ data[i].name +'</td><td>&emsp;&emsp;'+ data[i].cost +'</td></tr>';
+                    mainContainer.appendChild(tb);
+                    temp += data[i].cost;
+                    temp1 += data[i].cost;
+                }
+            }
+            tb.innerHTML +='<tr><td colspan="2" style="text-align: right;">Total</td><td>&emsp;&emsp;'+ temp +'</td></tr>';
+            mainContainer.appendChild(tb);
+
+            var temp = 0;
+            var str = newArray[29].created_at;
+            var tgl = str.substring(0, 10);
+            tb.innerHTML += '<table class="table table-hover"><tbody><div class="card-header"><h4>'+ tgl +'</h4></div><table id="myData" class="table table-hover"><tbody>';
+            mainContainer.appendChild(tb);
+            for (var i = 0; i < newArray.length; i++){
+                
+                var str = newArray[i].created_at;
+                var tgl = str.substring(0, 10);
+                var jam = str.substring(16, 11);
+                
+                if(tgl == '2021-02-13'){
+                    tb.innerHTML += '<tr><td>'+ jam +'</td><td>&emsp;'+ data[i].name +'</td><td>&emsp;&emsp;'+ data[i].cost +'</td></tr>';
+                    mainContainer.appendChild(tb);
+                    temp += data[i].cost;
+                    temp1 += data[i].cost;
+                }
+            }
+            tb.innerHTML +='<tr><td colspan="2" style="text-align: right;">Total</td><td>&emsp;&emsp;'+ temp +'</td></tr>';
+            mainContainer.appendChild(tb);
+
+            var temp = 0;
+            var str = newArray[34].created_at;
+            var tgl = str.substring(0, 10);
+            tb.innerHTML += '<table class="table table-hover"><tbody><div class="card-header"><h4>'+ tgl +'</h4></div><table id="myData" class="table table-hover"><tbody>';
+            mainContainer.appendChild(tb);
+            for (var i = 0; i < newArray.length; i++){
+                
+                var str = newArray[i].created_at;
+                var tgl = str.substring(0, 10);
+                var jam = str.substring(16, 11);
+                
+                if(tgl == '2021-02-12'){
+                    tb.innerHTML += '<tr><td>'+ jam +'</td><td>&emsp;'+ data[i].name +'</td><td>&emsp;&emsp;'+ data[i].cost +'</td></tr>';
+                    mainContainer.appendChild(tb);
+                    temp += data[i].cost;
+                    temp1 += data[i].cost;
+                }
+            }
+            tb.innerHTML +='<tr><td colspan="2" style="text-align: right;">Total</td><td>&emsp;&emsp;'+ temp +'</td></tr>';
+            mainContainer.appendChild(tb);
+
+            var temp = 0;
+            var str = newArray[38].created_at;
+            var tgl = str.substring(0, 10);
+            tb.innerHTML += '<table class="table table-hover"><tbody><div class="card-header"><h4>'+ tgl +'</h4></div><table id="myData" class="table table-hover"><tbody>';
+            mainContainer.appendChild(tb);
+            for (var i = 0; i < newArray.length; i++){
+                
+                var str = newArray[i].created_at;
+                var tgl = str.substring(0, 10);
+                var jam = str.substring(16, 11);
+                
+                if(tgl == '2021-02-11'){
+                    tb.innerHTML += '<tr><td>'+ jam +'</td><td>&emsp;'+ data[i].name +'</td><td>&emsp;&emsp;'+ data[i].cost +'</td></tr>';
+                    mainContainer.appendChild(tb);
+                    temp += data[i].cost;
+                    temp1 += data[i].cost;
+                }
+            }
+            tb.innerHTML +='<tr><td colspan="2" style="text-align: right;">Total</td><td>&emsp;&emsp;'+ temp +'</td></tr>';
+            mainContainer.appendChild(tb);
+            div.innerHTML = '<h2>Diari Jajan Februari</h2><h3>Pengeluaran Bulan Ini Rp '+ temp1 +'</h3>';
+            judulContainer.appendChild(div);
+        }
+        // var tanggal = data[i].created_at;
+        // var tgl = tanggal.split(" ");
+        const sortByDate = newArray => {
+            const sorter = (a, b) => {
+                return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+            }
+            newArray.sort(sorter);
+        };
+        
+        
+    </script>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Entri</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                          <label for="nama-jajan" class="col-form-label">Nama</label>
+                          <input type="text" class="form-control" id="nama-jajan">
+                        </div>
+                        <div class="form-gr oup">
+                          <label for="harga-jajan" class="col-form-label">Harga</label>
+                          <input type="range" class="form-control" id="harga-jajan"></textarea>
+                        </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">BATAL</button>
+                    <button type="button" class="btn btn-primary">KIRIM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="card-group" style="margin:20px; padding:10px;">
+        <div id="myData" class="card shadow-sm p-3 mb-5 bg-white rounded" style="margin:5px; padding:20px;">
+            <!-- <div class="card-header">
+                <h4>.....(Tanggal)</h4>
+            </div>
+            <table id="myData" class="table table-hover"><tbody>
+                '<tr><td>'+ jam +'</td><td>'+ data[i].name +'</td><td>Otto</td></tr>';
+                '<tr><td colspan="2" style="text-align: right;">Total</td><td>'+ temp +'</td></tr>';
+            </tbody></table> -->
+        </div>
+        <!-- <div class="card shadow-sm p-3 mb-5 bg-white rounded" style="margin:5px; padding:15px;">
+            <div class="card-body">
+                <h4 class="card-title">19 Februari</h4>
+                <p class="card-text">
+                    asdadsadsadsada
+                </p>
+            </div>
+        </div>
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded" style="margin:5px; padding:15px;">
+            <div class="card-body">
+                <h4 class="card-title">19 Februari</h4>
+                <p class="card-text">
+                    asdadsadsadsada
+                </p>
+            </div>
+        </div>
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded" style="margin:5px; padding:15px;">
+            <div class="card-body">
+                <h4 class="card-title">19 Februari</h4>
+                <p class="card-text">
+                    asdadsadsadsada
+                </p>
+            </div>
+        </div> -->
+    </div>
+    
+
+
 </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </html>
